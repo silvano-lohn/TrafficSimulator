@@ -1,0 +1,38 @@
+<project default="jar">
+
+	<target name="clean">
+		<delete dir="dist" />
+		<delete dir="bin" />
+	</target>
+
+
+	<path id="class.path">
+		<pathelement path="bin" />
+		<fileset dir="../TrafficSimulatorCommons/dist">
+			<include name="**/*.jar" />
+		</fileset>
+	</path>
+
+	<target name="compile" depends="clean">
+
+		<ant antfile="../TrafficSimulatorCommons/Build.xml" dir="../TrafficSimulatorCommons" />
+		<mkdir dir="bin" />
+		<javac srcdir="src" destdir="bin" includeantruntime="true">
+			<classpath refid="class.path" />
+		</javac>
+	</target>
+
+	<target name="jar" depends="compile">
+		<mkdir dir="dist" />
+		<jar destfile="dist/TrafficSimulatorMapEditor.jar" basedir="bin">
+
+			<fileset dir="../TrafficSimulatorCommons/bin" includes="**/*.class" />
+			<fileset dir="../TrafficSimulatorCommons/images" includes="**/*" />
+
+			<manifest>
+				<attribute name="Main-Class" value="br.com.trafficsimulator.editor.Main" />
+			</manifest>
+		</jar>
+	</target>
+
+</project>
