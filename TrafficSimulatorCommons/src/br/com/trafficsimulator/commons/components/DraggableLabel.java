@@ -1,4 +1,4 @@
-package br.com.trafficsimulator.editor;
+package br.com.trafficsimulator.commons.components;
 
 import java.awt.datatransfer.Transferable;
 import java.awt.dnd.DnDConstants;
@@ -16,8 +16,10 @@ import javax.swing.JLabel;
 
 import br.com.trafficsimulator.commons.ImageType;
 
-public class DraggableLabel extends JLabel implements DragGestureListener, DragSourceListener {
+public class DraggableLabel extends JLabel implements DragGestureListener,
+		DragSourceListener {
 
+	private static final long serialVersionUID = 1L;
 	private DragSource dragSource;
 	private ImageType imageType;
 
@@ -25,12 +27,15 @@ public class DraggableLabel extends JLabel implements DragGestureListener, DragS
 		super(new ImageIcon(imageType.getImage()));
 		this.imageType = imageType;
 		dragSource = new DragSource();
-		dragSource.createDefaultDragGestureRecognizer(this, DnDConstants.ACTION_COPY_OR_MOVE, this);
+		dragSource.createDefaultDragGestureRecognizer(this,
+				DnDConstants.ACTION_COPY_OR_MOVE, this);
 	}
 
 	public void dragGestureRecognized(DragGestureEvent evt) {
-		Transferable transferable = new StringTransferable(String.valueOf(imageType.getId()));
-		dragSource.startDrag(evt, DragSource.DefaultCopyDrop, transferable, this);
+		Transferable transferable = new StringTransferable(
+				String.valueOf(imageType.getId()));
+		dragSource.startDrag(evt, DragSource.DefaultCopyDrop, transferable,
+				this);
 
 	}
 

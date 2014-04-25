@@ -30,7 +30,11 @@ public enum ImageType {
 	/** */
 	_11_GROSS(11, "11gross.jpg"),
 	/** */
-	_12_X_CENTER(12, "12xCenter.jpg");
+	_12_X_CENTER(12, "12xCenter.jpg"),
+	/** */
+	_13_HORIZONTAL_FINISH(13, "13horizontalFinish.jpg"),
+	/** */
+	_14_HORIZONTAL_START(14, "14horizontalStart.jpg");
 
 	private int id;
 	private String imageName;

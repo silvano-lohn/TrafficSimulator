@@ -1,4 +1,4 @@
-package br.com.trafficsimulator.editor;
+package br.com.trafficsimulator.commons.components;
 
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.Transferable;

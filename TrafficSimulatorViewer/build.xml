@@ -24,13 +24,13 @@
 
 	<target name="jar" depends="compile">
 		<mkdir dir="dist" />
-		<jar destfile="dist/TrafficSimulatorMapEditor.jar" basedir="bin">
+		<jar destfile="dist/TrafficSimulator.jar" basedir="bin">
 
 			<fileset dir="../TrafficSimulatorCommons/bin" includes="**/*.class" />
 			<fileset dir="../TrafficSimulatorCommons/images" includes="**/*" />
 
 			<manifest>
-				<attribute name="Main-Class" value="br.com.trafficsimulator.editor.Main" />
+				<attribute name="Main-Class" value="br.com.trafficsimulator.view.Main" />
 			</manifest>
 		</jar>
 	</target>
